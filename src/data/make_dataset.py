@@ -3,6 +3,14 @@ import os
 import click
 import logging
 from dotenv import find_dotenv, load_dotenv
+from sklearn.pipeline import Pipeline
+from sklearn.base import TransformerMixin, BaseEstimator
+from sklearn.preprocessing import StandardScaler
+
+from src.data.extractors import *
+
+"""
+"""
 
 
 @click.command()
@@ -14,6 +22,19 @@ def main(input_filepath, output_filepath):
     """
     logger = logging.getLogger(__name__)
     logger.info('making final data set from raw data')
+
+    pipeline_yb = Pipeline([
+        ('year_built', YearBuiltExtractor())
+    ])
+
+    # df = pd.read_csv('../data/raw/tmp_ds_cluster.csv.gz', dtype=dtype)
+    df = pd.read_csv(input_filepath)
+    df_out = pd.read_csv(input_filepath)
+
+    X = pipeline_yb.fit_transform(df)
+
+    df_out.to_csv(output_filepath, index=False)
+
 
 
 if __name__ == '__main__':
