@@ -56,7 +56,7 @@ select r.*, tax.OwnerOccupiedInt,
 from target_random_id_fips_rt r
 left join realtytrac_tax tax
   on r.id=tax.RTPropertyUniqueIdentifier
-where random < .2
+where random < .33
 and fips in (select distinct fips from investor_region_exploded_view)
 and tax.SFR=1
 -- limit 10;

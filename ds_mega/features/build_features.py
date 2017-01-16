@@ -4,7 +4,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.base import TransformerMixin, BaseEstimator
 from sklearn.preprocessing import StandardScaler
 
-from src.data.extractors import YearBuiltExtractor
+from ds_mega.data.extractors import YearBuiltExtractor
 
 
 dtype = {'fips': str}

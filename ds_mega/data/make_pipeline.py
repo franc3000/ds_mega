@@ -5,9 +5,9 @@ from sklearn.base import TransformerMixin, BaseEstimator
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-from src.data.extractors import *
-from src.data.dict import experian_mosaic_dict, mosaic_missing_val, experian_income_dict
-from src.data.dataframe_feature_union import DataFrameFeatureUnion
+from ds_mega.data.extractors import *
+from ds_mega.data.dict import experian_mosaic_dict, mosaic_missing_val, experian_income_dict
+from ds_mega.data.dataframe_feature_union import DataFrameFeatureUnion
 
 
 def make_pipeline(df):
